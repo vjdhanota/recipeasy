@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum RedditError: Error {
+    case invalidJSONData
+}
+
 enum Method: String {
     case hotPosts = "hot.json"
     case newPosts = "new.json"
@@ -36,15 +40,16 @@ struct RedditAPI {
     // Builds our URL
     // @param method: The method of content we want - new/top/hot
     // @param parameters: Any additional parameters we want in our query
+    // @returns: The completed URL of the given request
     private static func redditURL(method: Method,
                                   parameters: [String:String]?) -> URL {
         
         var components = URLComponents(string: baseURLString + method.rawValue)!
         var queryItems = [URLQueryItem]()
         
-        
+        //figure out better way to do this
         let baseParams = [
-            "limit": "5"
+            "limit": "15"
         ]
         
         for (key, value) in baseParams {
@@ -65,6 +70,64 @@ struct RedditAPI {
         print("URL: \(components.url!)")
         return components.url!
     
+    }
+    
+    // Builds up a collection of recipes, if able to retrieve them - CALLED in RecipeStore.swift
+    // @param data: Data retrieved after making the get request
+    // @returns: Success RecipesResult if able to build an array of recipes. False RecipesResult if there was an error
+    static func recipes(fromJSON data: Data) -> RecipesResult {
+        do {
+            let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+            
+            guard
+                let jsonDictionary = jsonObject as? [AnyHashable:Any],
+                let recipes = jsonDictionary["data"] as? [String:Any],
+                let recipesArray = recipes["children"] as? [[String:Any]] else {
+                    
+                    // The JSON structure didnt match the expected outcome
+                    return .failure(RedditError.invalidJSONData)
+            }
+            
+            var finalRecipes = [Recipe]()
+            
+            for recipeJSON in recipesArray {
+                if let recipe = recipe(fromJSON: recipeJSON) {
+                    finalRecipes.append(recipe)
+                }
+            }
+            
+            if finalRecipes.isEmpty && !recipesArray.isEmpty {
+                //Weren't able to proccess any recipes
+                return .failure(RedditError.invalidJSONData)
+            }
+            
+            return .success(finalRecipes)
+            
+        } catch let error {
+            return .failure(error)
+        }
+    }
+    
+    // Handles each individual Recipe in JSON format and returns a built Recipe object
+    // @param json: The individual recipe json object
+    // @returns: A recipe object if able possible, nil otherwise
+    private static func recipe(fromJSON json: [String:Any]) -> Recipe? {
+        
+        guard
+            let data = json["data"] as? [String:Any],
+            let id = data["id"] as? String,
+            let title = data["title"] as? String,
+            let dateDouble = data["created"] as? Double,
+            let urlString = data["url"] as? String,
+            let ups = data["ups"] as? Int,
+            let url = URL(string: urlString) else {
+                
+                //Not getting all fields required to create recipe object
+                return nil
+        }
+        
+        return Recipe(id: id, title: title, remoteURL: url, ups: ups, date: dateDouble.getDateStringFromUTC())
+        
     }
 }
 
