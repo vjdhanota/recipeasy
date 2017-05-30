@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		B881A9421EDBAE3A00518B84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881A9411EDBAE3A00518B84 /* AppDelegate.swift */; };
-		B881A9441EDBAE3A00518B84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881A9431EDBAE3A00518B84 /* ViewController.swift */; };
 		B881A9471EDBAE3A00518B84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881A9451EDBAE3A00518B84 /* Main.storyboard */; };
 		B881A9491EDBAE3A00518B84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B881A9481EDBAE3A00518B84 /* Assets.xcassets */; };
 		B881A94C1EDBAE3A00518B84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881A94A1EDBAE3A00518B84 /* LaunchScreen.storyboard */; };
 		B881A9571EDBAE3A00518B84 /* RecipeasyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881A9561EDBAE3A00518B84 /* RecipeasyTests.swift */; };
 		B881A9621EDBAE3A00518B84 /* RecipeasyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881A9611EDBAE3A00518B84 /* RecipeasyUITests.swift */; };
+		B8BD81741EDDF5F90036CA53 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD81731EDDF5F90036CA53 /* FeedViewController.swift */; };
+		B8BD81761EDDF6AE0036CA53 /* RedditAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD81751EDDF6AE0036CA53 /* RedditAPI.swift */; };
+		B8BD81781EDDFCC70036CA53 /* RecipeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD81771EDDFCC70036CA53 /* RecipeStore.swift */; };
+		B8BD817A1EDE0DF60036CA53 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD81791EDE0DF60036CA53 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,6 @@
 /* Begin PBXFileReference section */
 		B881A93E1EDBAE3A00518B84 /* Recipeasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipeasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B881A9411EDBAE3A00518B84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B881A9431EDBAE3A00518B84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B881A9461EDBAE3A00518B84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B881A9481EDBAE3A00518B84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B881A94B1EDBAE3A00518B84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,10 @@
 		B881A95D1EDBAE3A00518B84 /* RecipeasyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeasyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B881A9611EDBAE3A00518B84 /* RecipeasyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeasyUITests.swift; sourceTree = "<group>"; };
 		B881A9631EDBAE3A00518B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8BD81731EDDF5F90036CA53 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = ../FeedViewController.swift; sourceTree = "<group>"; };
+		B8BD81751EDDF6AE0036CA53 /* RedditAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditAPI.swift; sourceTree = "<group>"; };
+		B8BD81771EDDFCC70036CA53 /* RecipeStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeStore.swift; sourceTree = "<group>"; };
+		B8BD81791EDE0DF60036CA53 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +103,11 @@
 		B881A9401EDBAE3A00518B84 /* Recipeasy */ = {
 			isa = PBXGroup;
 			children = (
+				B8BD81731EDDF5F90036CA53 /* FeedViewController.swift */,
+				B8BD81751EDDF6AE0036CA53 /* RedditAPI.swift */,
+				B8BD81771EDDFCC70036CA53 /* RecipeStore.swift */,
+				B8BD81791EDE0DF60036CA53 /* Recipe.swift */,
 				B881A9411EDBAE3A00518B84 /* AppDelegate.swift */,
-				B881A9431EDBAE3A00518B84 /* ViewController.swift */,
 				B881A9451EDBAE3A00518B84 /* Main.storyboard */,
 				B881A96F1EDBAE4200518B84 /* Supporting Files */,
 			);
@@ -267,8 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B881A9441EDBAE3A00518B84 /* ViewController.swift in Sources */,
+				B8BD81741EDDF5F90036CA53 /* FeedViewController.swift in Sources */,
+				B8BD81781EDDFCC70036CA53 /* RecipeStore.swift in Sources */,
 				B881A9421EDBAE3A00518B84 /* AppDelegate.swift in Sources */,
+				B8BD81761EDDF6AE0036CA53 /* RedditAPI.swift in Sources */,
+				B8BD817A1EDE0DF60036CA53 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +527,7 @@
 				B881A9681EDBAE3A00518B84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B881A9691EDBAE3A00518B84 /* Build configuration list for PBXNativeTarget "RecipeasyTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +536,7 @@
 				B881A96B1EDBAE3A00518B84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B881A96C1EDBAE3A00518B84 /* Build configuration list for PBXNativeTarget "RecipeasyUITests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +545,7 @@
 				B881A96E1EDBAE3A00518B84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
