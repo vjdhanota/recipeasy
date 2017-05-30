@@ -16,7 +16,15 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        store.fetchPosts(withURL: RedditAPI.topPostsURL)
-    }
+        store.fetchPosts(withURL: RedditAPI.hotPostsURL) { (recipesResult) -> Void in
+            
+            switch recipesResult {
+            case let .success(recipes):
+                print("Successfully found \(recipes.count) recipes")
+            case let .failure(error):
+                print("Error fetching recipes: \(error)")
+            }
+        }
     
+    }
 }

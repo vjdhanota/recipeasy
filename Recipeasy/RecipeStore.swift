@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum RecipesResult {
+    case success([Recipe])
+    case failure(Error)
+
+}
 class RecipeStore {
     
     private let session: URLSession = {
@@ -16,40 +21,23 @@ class RecipeStore {
     }()
     
     
-    func fetchPosts(withURL url: URL) {
+    func fetchPosts(withURL url: URL, completion: @escaping (RecipesResult) -> Void) {
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) { (data, reponse, error) -> Void in
             
-            if let jsonData = data {
-                if let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print(jsonString)
-                }
-            } else if let requestError = error {
-                print("Error fetching hot posts: \(requestError)")
-            } else {
-                print("Unexpected error with request")
-            }
+            let result = self.processRecipesRequest(data: data, error: error)
+            completion(result)
         }
         task.resume()
     }
     
-    
-    //    func fetchHotPosts() {
-    //
-    //        let url = RedditAPI.hotPostsURL
-    //        let request = URLRequest(url: url)
-    //        let task = session.dataTask(with: request) { (data, reponse, error) -> Void in
-    //
-    //            if let jsonData = data {
-    //                if let jsonString = String(data: jsonData, encoding: .utf8) {
-    //                    print(jsonString)
-    //                }
-    //            } else if let requestError = error {
-    //                print("Error fetching hot posts: \(requestError)")
-    //            } else {
-    //                print("Unexpected error with request")
-    //            }
-    //        }
-    //        task.resume()
-    //    }
+    private func processRecipesRequest(data: Data?, error: Error?) -> RecipesResult {
+        
+        guard let jsonData = data else {
+            return .failure(error!)
+        }
+        
+        return RedditAPI.recipes(fromJSON: jsonData)
+        
+    }
 }

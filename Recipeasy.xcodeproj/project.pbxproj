@@ -17,6 +17,7 @@
 		B8BD81761EDDF6AE0036CA53 /* RedditAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD81751EDDF6AE0036CA53 /* RedditAPI.swift */; };
 		B8BD81781EDDFCC70036CA53 /* RecipeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD81771EDDFCC70036CA53 /* RecipeStore.swift */; };
 		B8BD817A1EDE0DF60036CA53 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD81791EDE0DF60036CA53 /* Recipe.swift */; };
+		B8BD817F1EDE26B90036CA53 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD817E1EDE26B90036CA53 /* Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		B8BD81751EDDF6AE0036CA53 /* RedditAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditAPI.swift; sourceTree = "<group>"; };
 		B8BD81771EDDFCC70036CA53 /* RecipeStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeStore.swift; sourceTree = "<group>"; };
 		B8BD81791EDE0DF60036CA53 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		B8BD817E1EDE26B90036CA53 /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +105,13 @@
 		B881A9401EDBAE3A00518B84 /* Recipeasy */ = {
 			isa = PBXGroup;
 			children = (
+				B881A9411EDBAE3A00518B84 /* AppDelegate.swift */,
 				B8BD81731EDDF5F90036CA53 /* FeedViewController.swift */,
 				B8BD81751EDDF6AE0036CA53 /* RedditAPI.swift */,
 				B8BD81771EDDFCC70036CA53 /* RecipeStore.swift */,
 				B8BD81791EDE0DF60036CA53 /* Recipe.swift */,
-				B881A9411EDBAE3A00518B84 /* AppDelegate.swift */,
 				B881A9451EDBAE3A00518B84 /* Main.storyboard */,
+				B8BD817D1EDE268A0036CA53 /* Extensions */,
 				B881A96F1EDBAE4200518B84 /* Supporting Files */,
 			);
 			path = Recipeasy;
@@ -140,6 +143,14 @@
 				B881A94D1EDBAE3A00518B84 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8BD817D1EDE268A0036CA53 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B8BD817E1EDE26B90036CA53 /* Double.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +291,7 @@
 				B8BD81781EDDFCC70036CA53 /* RecipeStore.swift in Sources */,
 				B881A9421EDBAE3A00518B84 /* AppDelegate.swift in Sources */,
 				B8BD81761EDDF6AE0036CA53 /* RedditAPI.swift in Sources */,
+				B8BD817F1EDE26B90036CA53 /* Double.swift in Sources */,
 				B8BD817A1EDE0DF60036CA53 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

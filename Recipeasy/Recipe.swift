@@ -13,12 +13,14 @@ class Recipe {
     let title: String
     let remoteURL: URL
     let ups: Int
+    let date: String
     
-    init(id: String, title: String, remoteURL: URL, ups: Int ) {
+    init(id: String, title: String, remoteURL: URL, ups: Int, date: String) {
         self.id = id
         self.title = title
         self.remoteURL = remoteURL
         self.ups = ups
+        self.date = date
     }
     
 }
