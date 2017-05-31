@@ -21,10 +21,28 @@ class FeedViewController: UIViewController {
             switch recipesResult {
             case let .success(recipes):
                 print("Successfully found \(recipes.count) recipes")
+                
+                if let firstRecipe = recipes.first {
+                    self.updateImageview(for: firstRecipe)
+                }
+                
             case let .failure(error):
                 print("Error fetching recipes: \(error)")
             }
         }
     
+    }
+    
+    func updateImageview(for recipe: Recipe) {
+        
+        store.fetchImage(for: recipe) { (imageResult) -> Void in
+            
+            switch imageResult {
+            case let .success(image):
+                self.imageView.image = image
+            case let .failure(error):
+                print("Error downloading image: \(error)")
+            }
+        }
     }
 }

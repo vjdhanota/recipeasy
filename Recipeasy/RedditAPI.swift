@@ -125,8 +125,25 @@ struct RedditAPI {
                 //Not getting all fields required to create recipe object
                 return nil
         }
+        let stringURL = url.absoluteString
+        var finalURL = ""
         
-        return Recipe(id: id, title: title, remoteURL: url, ups: ups, date: dateDouble.getDateStringFromUTC())
+        // Takes care of some posts we don't want when using hotPostsURL
+        if(stringURL.contains("comments")) {
+            return nil
+        }
+        
+        if(stringURL.contains("gfycat")) {
+            // Handle GFYCAT gifs...
+            let gyfcatIdentifier = stringURL.components(separatedBy: "/")
+            finalURL += "https://thumbs.gfycat.com/" + gyfcatIdentifier.last! + "-size_restricted.gif"
+        } else {
+            // Handle imgur/reddit hosted gif
+            finalURL = url.deletingPathExtension().absoluteString
+            finalURL.append(".gif")
+        }
+        
+        return Recipe(id: id, title: title, remoteURL: URL(string: finalURL)!, ups: ups, date: dateDouble.getDateStringFromUTC())
         
     }
 }
