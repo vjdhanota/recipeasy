@@ -6,7 +6,16 @@
 //  Copyright © 2017 Jay Dhanota. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+enum ImageResult {
+    case success(UIImage)
+    case failure(Error)
+}
+
+enum RecipeError: Error {
+    case imageCreationError
+}
 
 enum RecipesResult {
     case success([Recipe])
@@ -26,7 +35,9 @@ class RecipeStore {
         let task = session.dataTask(with: request) { (data, reponse, error) -> Void in
             
             let result = self.processRecipesRequest(data: data, error: error)
-            completion(result)
+            OperationQueue.main.addOperation {
+                completion(result)
+            }
         }
         task.resume()
     }
@@ -39,5 +50,38 @@ class RecipeStore {
         
         return RedditAPI.recipes(fromJSON: jsonData)
         
+    }
+    
+    func fetchImage(for recipe: Recipe, completion: @escaping (ImageResult) -> Void) {
+        
+        let recipeURL = recipe.remoteURL
+        let request = URLRequest(url: recipeURL)
+        
+        let task = session.dataTask(with: request) {
+            (data, response, error) -> Void in
+            
+            let result = self.processImageRequest(data: data, error: error)
+            OperationQueue.main.addOperation {
+                completion(result)
+            }
+            
+        }
+        task.resume()
+    }
+    
+    private func processImageRequest(data: Data?, error: Error?) -> ImageResult {
+        
+        guard
+            let imageData = data,
+            let image = UIImage.gif(data: imageData) else {
+                
+                //couldn't create the image
+                if data == nil {
+                    return .failure(error!)
+                } else {
+                    return .failure(RecipeError.imageCreationError)
+                }
+        }
+        return .success(image)
     }
 }

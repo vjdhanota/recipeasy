@@ -18,6 +18,7 @@
 		B8BD81781EDDFCC70036CA53 /* RecipeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD81771EDDFCC70036CA53 /* RecipeStore.swift */; };
 		B8BD817A1EDE0DF60036CA53 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD81791EDE0DF60036CA53 /* Recipe.swift */; };
 		B8BD817F1EDE26B90036CA53 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD817E1EDE26B90036CA53 /* Double.swift */; };
+		B8BD81811EDE4A7E0036CA53 /* UIImageGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD81801EDE4A7E0036CA53 /* UIImageGif.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B8BD81771EDDFCC70036CA53 /* RecipeStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeStore.swift; sourceTree = "<group>"; };
 		B8BD81791EDE0DF60036CA53 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		B8BD817E1EDE26B90036CA53 /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		B8BD81801EDE4A7E0036CA53 /* UIImageGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageGif.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				B8BD817E1EDE26B90036CA53 /* Double.swift */,
+				B8BD81801EDE4A7E0036CA53 /* UIImageGif.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8BD81741EDDF5F90036CA53 /* FeedViewController.swift in Sources */,
+				B8BD81811EDE4A7E0036CA53 /* UIImageGif.swift in Sources */,
 				B8BD81781EDDFCC70036CA53 /* RecipeStore.swift in Sources */,
 				B881A9421EDBAE3A00518B84 /* AppDelegate.swift in Sources */,
 				B8BD81761EDDF6AE0036CA53 /* RedditAPI.swift in Sources */,
